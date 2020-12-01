@@ -1,11 +1,20 @@
 
   <h1>Book detail</h1>
-  <%= attachment_image_tag @user, :image %>
-  <%= @book.title %>
-  <%= @book.body %>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id) %>
-  <% end %>
-  <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= attachment_image_tag @user, :image %></td>
+        <td><%= @book.title %></td>
+        <td><%= @book.body %></td>
+        <td><% if @book.user == current_user %>
+              <%= link_to "Edit", edit_book_path(@book.id) %>
+            <% end %>
+            <% if @book.user == current_user %>
+              <%= link_to "Destroy", book_path(@book), method: :delete, data: { confirm: "本当に消しますか?"} %>
+            <% end %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+

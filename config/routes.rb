@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :homes, only: [:top]
   resources :books
-  resources :users, only: [:show]
+  resources :users
 end
 
 
