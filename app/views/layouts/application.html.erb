@@ -8,8 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+
     <% if user_signed_in? %>
       <li>
         <%= link_to "Home", user_path(current_user.id) %>
@@ -38,5 +39,6 @@
       </li>
     <% end %>
     <%= yield %>
+    </nav>
   </body>
 </html>
