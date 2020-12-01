@@ -1,7 +1,10 @@
 <% @books.each do |book| %>
 <div>
   <h1>Books</h1>
-  <h2>Title <%= book.title %></h2>
+  <%= attachment_image_tag @user, :image %>
+  <%= link_to book_path(book.id) do %>
+    <h2>Title <%= book.title %></h2>
+  <% end %>
   <h2>Opinion <%= book.body %></h2>
 </div>
 <% end %>
