@@ -9,7 +9,7 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td><%= attachment_image_tag @user, :image %></td>
+      <td><%= attachment_image_tag @user, :profile_image, size: "60x60", farmat: 'jpg', fallback: "no_image.jpg" %></td>
       <td><%= user.name %></td>
       <td><%= link_to "Show" %></td>
     </tr>

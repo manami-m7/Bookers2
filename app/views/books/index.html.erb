@@ -8,7 +8,7 @@
      <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= attachment_image_tag @user, :image %></td>
+        <td><%= attachment_image_tag @user, :profile_image, size: "60x60", farmat: 'jpg', fallback: "no_image.jpg" %></td>
         <td><%= link_to book_path(book.id) do %>
             <%= book.title %>
             <% end %>

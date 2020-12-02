@@ -1,0 +1,18 @@
+<%= flash[:notice] %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_with model: @user, local:true do |f| %>
+        <lavel for="inputName">Name</lavel>
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
+        <lavel for="inputImage">Image</lavel>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        <lavel for="inputIntroduction">Introduction</lavel>
+        <%= f.text_area :introduction %>
+        <%= f.submit "Update User" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
