@@ -10,9 +10,8 @@
         <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
         <lavel for="inputIntroduction">Introduction</lavel>
         <%= f.text_area :introduction %>
-        <%= f.submit "Update User" %>
+        <div><%= f.submit "Update User", class: 'btn btn-secondary' %></div>
       <% end %>
-
     </div>
   </div>
 </div>

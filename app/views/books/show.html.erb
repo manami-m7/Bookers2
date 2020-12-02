@@ -1,9 +1,13 @@
 <%= flash[:notice] %>
+   <%= render 'users/user_show', user: @user %>
+
+   <%= render 'books/book_new', book: @book %>
+
   <h1>Book detail</h1>
   <table>
     <tbody>
       <tr>
-        <td><%= attachment_image_tag @user, :image %></td>
+        <td><%= attachment_image_tag @user, :profile_image %></td>
         <td><%= @book.title %></td>
         <td><%= @book.body %></td>
         <td><% if @book.user == current_user %>
