@@ -1,9 +1,16 @@
 <p></p>
- <h2>New book</h2>
+<h2>New book</h2>
+
 <%= form_with model: book, local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
+ <div class="form-group">
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title, class: 'form-control' %>
+ </div>
+
+ <div class="form-group">
+    <%= f.label :body, 'Opinion' %>
+    <%= f.text_area :body, class: 'form-control' %>
+ </div>
+
   <div><%= f.submit 'Create Book', class: 'btn btn-success' %></div>
 <% end %>
