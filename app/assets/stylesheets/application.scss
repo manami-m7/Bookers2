@@ -26,3 +26,18 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+input[type="text"]{
+  width:190px;
+  height:40px;
+}
+
+textarea{
+  width:190px;
+  height:70px;
+}
+
+.style{
+  display:inline-block;
+  padding-top:10px;
+}
