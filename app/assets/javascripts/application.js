@@ -17,8 +17,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-const title="javascriptが使えました"
-alert(title)
+
 
 // $(document).ready(function(){
 //   $('.jquery').on('click',function() {
