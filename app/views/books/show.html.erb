@@ -21,6 +21,20 @@
                 <td><%= @book.body %></td>
 
                 <td>
+                  <% if @book.favorited_by?(current_user) %>
+                    <%= link_to book_favorites_path(@book), method: :delete do %>
+                      <i class="far fa-heart"></i>
+                      <%= @book.favorites.count %>
+                    <% end %>
+                    <% else %>
+                    <%= link_to book_favorites_path(@book), method: :post do %>
+                      <i class="far fa-heart"></i>
+                      <%= @book.favorites.count %>
+                    <% end %>
+                  <% end %>
+                </td>
+
+                <td>
                   <span>コメント数：</span>
                   <%= @book.book_comments.count %>
                 </td>
@@ -32,7 +46,7 @@
               </tr>
             </tbody>
           </table>
-
+          <!--投稿されたコメントの表示-->
           <table class="table">
             <thead>
               <tr>
@@ -58,11 +72,26 @@
               <% end %>
             </tbody>
           </table>
+          <!--投稿されたコメントの表示-->
+
           <div class="new-comment">
+            <!--エラーメッセージ -->
+            <% if @book_comment.errors.any? %>
+              <h3 class="error-color"</h3><%= @book_comment.errors.count %>error prohibited this book from being saved:</h3><br>
+               <% @book_comment.errors.full_messages.each do |message| %>
+                <ul>
+                  <li class="error-color"><%= message %></li>
+                </ul>
+              <% end %>
+            <% end %>
+            <!--エラーメッセージ -->
+
+            <!--コメントの送信フォーム-->
             <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
             <%= f.text_area :comment, class: 'form-control' %>
-            <%= f.submit "送信する" %>
+            <%= f.submit "送信" %>
             <% end %>
+            <!--コメントの送信フォーム-->
           </div>
     </div>
   </div>
