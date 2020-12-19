@@ -1,0 +1,13 @@
+<h2>Follow Users</h2>
+
+<table class="table">
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag @user, :profile_image, size: "60x60", farmat: 'jpg', fallback: "no_image.jpg" %></td>
+        <td><%= user.name %></td>
+        <td><%=link_to 'show', user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
