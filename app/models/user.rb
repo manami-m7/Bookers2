@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
   #フォローしていればtrueを返す
   def following?(other_user)
-    followed_relationships.include?(followed_id: other_user.id)
+    followings.include?(other_user)
   end
 
   attachment :profile_image

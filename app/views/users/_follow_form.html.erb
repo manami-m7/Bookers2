@@ -1,4 +1,8 @@
-<%= form_for(current_user.follower_relationships.build(followed_id: @users)) do |f| %>
-  <div><%= f.hidden_field :followed_id %></div>
-  <%= f.submit "フォローする", class: "follow_btn" %>
-<% end %>
+
+  <div id="follow_form">
+  <% if current_user.following?(user) %>
+    <%= render 'unfollow',user: user %>
+  <% else %>
+    <%= render 'follow',users: user %>
+  <% end %>
+  </div>
