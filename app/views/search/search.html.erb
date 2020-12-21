@@ -1,2 +1,65 @@
-<h1>Search#search</h1>
-<p>Find me in app/views/search/search.html.erb</p>
+<div class="container">
+  <div class="col-xs-12">
+      <!--検索バー-->
+      <%= render 'search/search_form' %>
+      <p></p>
+    <% if @model == "user" %>
+    <h2>Users search for '<%= @value %>'</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Introduction</th>
+            </tr>
+        </thead>
+      <% @data.each do |user| %>
+        <tbody>
+            <tr>
+                <th>
+                    <%= attachment_image_tag(user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40') %>
+                </th>
+                <th>
+                    <%= link_to user_path(user.id) do %>
+                        <%= user.name %>
+                    <% end %>
+                </th>
+                <th>
+                    <%= user.introduction %>
+                </th>
+            </tr>
+        </tbody>
+      <% end %>
+    <% elsif @model == "book" %>
+    <h2>Books search for '<%= @value %>'</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+            </tr>
+        </thead>
+        <% @data.each do |book| %>
+        <tbody>
+            <tr>
+                <th>
+                    <%= link_to user_path(book.user.id) do %>
+                        <%= attachment_image_tag(book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40') %>
+                    <% end %>
+                </th>
+                <th>
+                    <%= link_to book_path(book.id) do %>
+                        <%= book.title %>
+                    <% end %>
+                </th>
+                <th>
+                    <%= book.body %>
+                </th>
+            </tr>
+        </tbody>
+        <% end %>
+    <% end %>
+    </table>
+  </div>
+</div>

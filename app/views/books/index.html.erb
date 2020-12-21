@@ -13,7 +13,10 @@
        <%= render 'users/user_show', user: @user %>
        <%= render 'books/book_new', book: @book %>
     </div>
+
     <div class="col-md-8 offset-md-1 pt-3">
+        <%= render 'search/search_form' %>
+        <p></p>
         <%= render 'books/book_index', books: @books %>
     </div>
   </div>
