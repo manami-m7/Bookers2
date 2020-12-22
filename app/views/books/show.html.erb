@@ -1,16 +1,24 @@
+
 <div class="container">
   <div class="row">
 
     <div class="col-md-3">
+      <!--userの詳細インフォの表示-->
        <%= render 'users/user_show', user: @book.user %>
+      <!--userの詳細インフォの表示-->
 
+      <!--bookの投稿画面-->
        <%= render 'books/book_new', book: @book_new %>
+       <!--bookの投稿画面-->
     </div>
 
     <div class="col-md-8 offset-md-1 pt-md-3">
         <!--検索バー-->
         <%= render 'search/search_form' %>
+        <!--検索バー-->
         <p></p>
+
+        <!--bookの詳細表示-->
         <h2>Book detail</h2>
           <table class="table">
             <tbody>
@@ -23,13 +31,14 @@
                 </td>
                 <td><%= link_to @book.title, book_path(@book) %></td>
                 <td><%= @book.body %></td>
-                <!--いいねの表示-->
+                <!--bookの詳細表示-->
 
-                  <td id="favorite-<%= book.id %>">
-                      <%= render 'favorites', favorites: @book %>
+                <!--いいねの表示-->
+                  <td id="favorite-<%= @book.id %>">
+                      <%= render 'books/favorites', book: @book %>
                   </td>
-
                 <!--いいねの表示-->
+
                 <td>
                   <span>コメント数：</span>
                   <%= @book.book_comments.count %>
@@ -42,6 +51,7 @@
               </tr>
             </tbody>
           </table>
+
           <!--投稿されたコメントの表示-->
           <div class="book_comments">
             <%= render 'book_comments', book_comments: @book_comments %>

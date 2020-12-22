@@ -1,3 +1,4 @@
+        <!--bookの一覧-->
         <h2>Books</h2>
           <table class="table table-hover">
             <thead>
@@ -16,12 +17,16 @@
                     <% end %>
                     </td>
                     <td><%= book.body %></td>
+                    
                     <!--いいねの表示-->
                     <td id="favorite-<%= book.id %>">
-                      <%= render 'favorites', favorites: book %>
+                      <%= render 'books/favorites', book: book %>
                     </td>
                     <!--いいね の表示-->
+                    
+                    <!--コメント数の表示-->
                     <td><%= "#{book.book_comments.count} コメント" %></td>
+                    <!--コメント数の表示-->
                   </tr>
                 <% end %>
             </tbody>
